@@ -1,0 +1,41 @@
+name: CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: |
+        # Pas besoin d'installer de dépendances pour un site HTML/CSS/JS
+
+    - name: Run HTML/CSS/JS Validation
+      run: |
+        # Commandes pour valider la syntaxe HTML, CSS et JavaScript
+        # Par exemple, vous pouvez utiliser des outils comme HTMLHint, CSSLint et ESLint
+
+  deploy:
+    name: Deploy to Production
+    runs-on: windows-latest
+    needs: build
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Deploy to Web Server
+      run: |
+        # Commandes pour déployer le site sur votre serveur web
+        # Par exemple, vous pouvez utiliser FTP ou SCP pour transférer les fichiers sur le serveur
+
+    - name: Notify Deployment Status
+      run: echo "Deployment successful!"
